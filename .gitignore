@@ -64,3 +64,6 @@ org-roam.db-journal
 *.bak
 *.orig
 *.rej
+
+# tree sitter
+tree-sitter/

@@ -97,3 +97,9 @@
 
 (use-package kanagawa-themes
   :init (load-theme 'kanagawa-wave))
+
+(use-package lsp-mode)
+
+(use-package which-key
+    :config
+    (which-key-mode))
