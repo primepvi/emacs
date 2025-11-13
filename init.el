@@ -98,7 +98,14 @@
 (use-package kanagawa-themes
   :init (load-theme 'kanagawa-wave))
 
-(use-package lsp-mode)
+(use-package eglot
+  :ensure t
+  :hook ((c-mode c++-mode) . eglot-ensure)
+  :config
+  (add-to-list 'eglot-server-programs
+               '(c-mode . ("clangd" "--background-index" "--clang-tidy")))
+  (add-to-list 'eglot-server-programs
+               '(c++-mode . ("clangd" "--background-index" "--clang-tidy"))))
 
 (use-package which-key
     :config
