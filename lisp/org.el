@@ -35,6 +35,7 @@
    '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
 
 (add-hook 'org-mode-hook 'variable-pitch-mode)
+(add-hook 'org-mode-hook #'org-display-inline-images)
 (plist-put org-format-latex-options :scale 2)
 
 (setq org-hide-emphasis-markers t)
