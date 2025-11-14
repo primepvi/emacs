@@ -10,7 +10,7 @@
                 (org-level-7 . 1.1)
                 (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :weight 'bold :height (cdr face)))
-
+  (setq org-startup-with-latex-preview t)
   (set-face-attribute 'org-block nil :inherit 'fixed-pitch :height 0.85)
   (set-face-attribute 'org-code nil :inherit '(shadow fixed-pitch) :height 0.85)
   (set-face-attribute 'org-verbatim nil :inherit '(shadow fixed-pitch) :height 0.85)
@@ -36,6 +36,7 @@
 
 (add-hook 'org-mode-hook 'variable-pitch-mode)
 (add-hook 'org-mode-hook #'org-display-inline-images)
+
 (plist-put org-format-latex-options :scale 2)
 
 (setq org-hide-emphasis-markers t)
