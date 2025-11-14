@@ -17,7 +17,24 @@
   (set-face-attribute 'org-special-keyword nil :inherit '(font-lock-comment-face fixed-pitch))
   (set-face-attribute 'org-meta-line nil :inherit '(font-lock-comment-face fixed-pitch))
   (set-face-attribute 'org-checkbox nil :inherit 'fixed-pitch)
-)
+  (add-to-list 'org-latex-packages-alist '("" "amsmath"))
+  (add-to-list 'org-latex-packages-alist '("" "textcomp"))
+  (add-to-list 'org-latex-packages-alist '("" "mathtools"))
+ )
+
+(setq org-preview-latex-process-alist
+      '((dvipng
+         :programs ("latex" "dvipng")
+         :description "dvi > png"
+         :message "You need to install latex and dvipng."
+         :use-xcolor t
+         :image-input-type "dvi"
+         :image-output-type "png"
+         :latex-compiler
+         ("latex -interaction nonstopmode -output-directory %o %f")
+         :image-converter
+         ("dvipng -D %D -T tight -bg Transparent -o %O %f"))))
+
 
 (custom-theme-set-faces
    'user
