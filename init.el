@@ -120,12 +120,15 @@
 
 (use-package eglot
   :ensure t
-  :hook ((c-mode c++-mode) . eglot-ensure)
+  :hook ((c-mode c++-mode rust-ts-mode) . eglot-ensure)
   :config
   (add-to-list 'eglot-server-programs
                '(c-mode . ("clangd" "--background-index" "--clang-tidy")))
   (add-to-list 'eglot-server-programs
-               '(c++-mode . ("clangd" "--background-index" "--clang-tidy"))))
+               '(c++-mode . ("clangd" "--background-index" "--clang-tidy")))
+  (add-to-list 'eglot-server-programs
+             '((rust-ts-mode rust-mode) .
+               ("rustup" "run" "stable" "rust-analyzer" :initializationOptions (:check (:command "clippy"))))))
 
 (use-package which-key
     :config

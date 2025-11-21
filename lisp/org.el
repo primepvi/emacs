@@ -22,6 +22,18 @@
   (add-to-list 'org-latex-packages-alist '("" "mathtools"))
  )
 
+(use-package ob-rust)
+(use-package rust-mode)
+
+(setq org-babel-load-languages
+      '((emacs-lisp . t)
+        (python     . t)
+        (shell      . t)
+        (C          . t)
+        (rust       . t)))
+(org-babel-do-load-languages 'org-babel-load-languages
+                             org-babel-load-languages)
+
 (setq org-preview-latex-process-alist
       '((dvipng
          :programs ("latex" "dvipng")
